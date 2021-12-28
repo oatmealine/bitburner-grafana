@@ -133,7 +133,7 @@ setInterval(() => {
 	await sql`
 		CREATE TABLE IF NOT EXISTS money (
 		    time timestamp,
-		    money int
+		    money real
 		)
 	`;
 

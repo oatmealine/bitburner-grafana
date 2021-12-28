@@ -78,12 +78,30 @@ app.get('/bitburner/rmserver', async (req, res) => {
 	res.send('200');
 });
 
+app.get('/bitburner/money', async (req, res) => {
+	if (req.query.secret !== secret) {
+		return res.send('403');
+	}
+	if (!req.query.money) {
+		return res.send('401');
+	}
+
+	await sql`
+		INSERT INTO money VALUES (${new Date()}, ${req.query.money});
+	`;
+	
+	res.send('200');
+});
+
 setInterval(() => {
 	sql`
 		DELETE FROM servers WHERE time <= ${new Date(Date.now() - 1000 * 60 * 30)};
 	`;
 	sql`
 		DELETE FROM stats WHERE time <= ${new Date(Date.now() - 1000 * 60 * 30)};
+	`;
+	sql`
+		DELETE FROM money WHERE time <= ${new Date(Date.now() - 1000 * 60 * 60 * 3)};
 	`;
 }, 1000 * 30);
 
@@ -110,6 +128,12 @@ setInterval(() => {
 		CREATE TABLE IF NOT EXISTS boughtservers (
 			hostname text,
 			ram int
+		)
+	`;
+	await sql`
+		CREATE TABLE IF NOT EXISTS money (
+		    time timestamp,
+		    money int
 		)
 	`;
 

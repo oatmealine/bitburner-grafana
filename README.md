@@ -47,6 +47,8 @@ await ns.wget(`${urlPrefix}/servers?secret=${secret}&known=5&rooted=1&owned=1&pr
 
 await ns.wget(`${urlPrefix}/boughtserver?secret=${secret}&hostname=test&ram=16`);
 await ns.wget(`${urlPrefix}/rmserver?secret=${secret}&hostname=test`);
+
+await ns.wget(`${urlPrefix}/money?secret=${secret}&money=20`);
 ```
 
 ## proof?

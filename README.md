@@ -36,7 +36,18 @@ CREATE DATABASE bitburner OWNER bitburner;
 
 7. (optionally) install pm2 and run this script with `pm2 start index.js --name bitburner-grafana`
 
-follow the rest of the instructions on the [fucker suite gh page](https://github.com/oatmealine/bitburner-scripts/)
+follow the rest of the instructions on the [fucker suite gh page](https://github.com/oatmealine/bitburner-scripts/) - alternatively, here's how to manually send the information:
+
+```js
+const urlPrefix = 'https://localhost:3030/bitburner';
+
+await ns.wget(`${urlPrefix}/?secret=${secret}&processes=5&hacking=2&growing=2&weakening=1`);
+
+await ns.wget(`${urlPrefix}/servers?secret=${secret}&known=5&rooted=1&owned=1&profitable=3`);
+
+await ns.wget(`${urlPrefix}/boughtserver?secret=${secret}&hostname=test&ram=16`);
+await ns.wget(`${urlPrefix}/rmserver?secret=${secret}&hostname=test`);
+```
 
 ## proof?
 

@@ -1,0 +1,30 @@
+{
+  "name": "bitburner-grafana",
+  "version": "1.0.0",
+  "description": "Janky Grafana integration for Bitburner (specifically, the fucker suite)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oatmealine/bitburner-grafana.git"
+  },
+  "keywords": [
+    "postgres",
+    "grafana",
+    "bitburner",
+    "expressjs"
+  ],
+  "author": "oatmealine",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/oatmealine/bitburner-grafana/issues"
+  },
+  "homepage": "https://github.com/oatmealine/bitburner-grafana#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "postgres": "^1.0.2"
+  }
+}

@@ -57,6 +57,7 @@ app.get('/bitburner/boughtserver', async (req, res) => {
 	}
 
 	await sql`
+		DELETE FROM boughtservers WHERE hostname = ${req.query.hostname};
 		INSERT INTO boughtservers VALUES (${req.query.hostname}, ${req.query.ram});
 	`;
 	
